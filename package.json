@@ -1,0 +1,20 @@
+{
+  "name": "upstack",
+  "version": "1.0.0",
+  "description": "Upstack: a Sims-style mini game about breaking into tech from zero. Every setback is a step.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "Thusala",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  },
+  "type": "module",
+  "private": true
+}

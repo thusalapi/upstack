@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Upstack · A game by Thusala</title>
+    <meta name="description" content="Upstack is a Sims-style mini game about breaking into tech from zero. Every setback is a step." />
+    <meta property="og:title" content="Upstack" />
+    <meta property="og:description" content="Every setback is a step. A Sims-style mini game by Thusala." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 80,50 50,96 20,50' fill='%2337d67a'/></svg>" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="labels"></div>
+
+    <div id="hud" class="hidden">
+      <div id="queue"></div>
+
+      <div id="goal" class="panel">
+        <div class="goal-chapter" id="goalChapter"></div>
+        <div class="goal-sub" id="goalSub"></div>
+        <div id="goalList"></div>
+      </div>
+
+      <div id="toasts"></div>
+
+      <div id="sim" class="panel">
+        <div class="portrait">
+          <div class="plumbob-mini" id="plumbobMini"></div>
+          <img src="./profile.jpg" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="sim-info">
+          <div class="sim-name">Thusala</div>
+          <div class="sim-mood" id="mood">Focused</div>
+          <div class="sim-clock" id="clock">Day 1 · 08:00</div>
+        </div>
+        <div id="needs"></div>
+      </div>
+
+      <div id="controls" class="panel">
+        <button data-speed="0" title="Pause (Space)">❚❚</button>
+        <button data-speed="1" class="on" title="Normal speed (1)">▶</button>
+        <button data-speed="2" title="Fast (2)">▶▶</button>
+        <button data-speed="3" title="Ultra (3)">▶▶▶</button>
+        <span class="sep"></span>
+        <button id="mute" title="Sound">🔊</button>
+        <button id="helpBtn" title="How to play">?</button>
+      </div>
+    </div>
+
+    <div id="pie" class="hidden"></div>
+
+    <div id="intro" class="screen">
+      <div class="card">
+        <div class="logo"><span class="gem"></span>UPSTACK</div>
+        <p class="tag">Every setback is a step.</p>
+        <p class="story">
+          Everyone in tech starts somewhere. Mine was a tiny room, a slow laptop and a long list of reasons it might not work out.
+          Help me climb from the ground floor to the summit. Dodge the setbacks, keep my needs up, and turn each one into a step.
+        </p>
+        <div class="howto">
+          <div><b>Click floor</b> or <b>WASD</b> to move</div>
+          <div><b>Click objects</b> for actions</div>
+          <div><b>Red circle?</b> Get out of it</div>
+          <div><b>Landed setbacks</b> become lessons and steps</div>
+          <div><b>Q / E</b> rotate · <b>Scroll</b> zoom</div>
+          <div><b>Space</b> pause · <b>1-3</b> speed</div>
+        </div>
+        <button id="startBtn" disabled>Loading Thusala… <span id="loadPct">0%</span></button>
+        <p class="credit">A portfolio mini game by <a href="https://thusala.me" target="_blank" rel="noopener">Thusala</a></p>
+      </div>
+    </div>
+
+    <div id="ending" class="screen hidden">
+      <div class="card">
+        <div class="logo"><span class="gem gold"></span>THE SUMMIT</div>
+        <p class="tag">Every setback became a step.</p>
+        <p class="story" id="endStory"></p>
+        <div class="stats" id="endStats"></div>
+        <div class="end-buttons">
+          <a class="btn" href="https://thusala.me" target="_blank" rel="noopener">Visit my portfolio</a>
+          <a class="btn alt" href="https://github.com/thusalapi" target="_blank" rel="noopener">GitHub</a>
+          <button class="btn alt" id="againBtn">Play again</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
